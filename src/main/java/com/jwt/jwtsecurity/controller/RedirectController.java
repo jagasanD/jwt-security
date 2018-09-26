@@ -7,16 +7,18 @@ package com.jwt.jwtsecurity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  *
  * @author root
  */
 @Controller
+@ApiIgnore
 public class RedirectController {
 
     @GetMapping("/")
     public String getSwaggerApi() {
-         return "redirect:swagger-ui.html";
+         return "redirect:/swagger-ui.html";
     }
 }
