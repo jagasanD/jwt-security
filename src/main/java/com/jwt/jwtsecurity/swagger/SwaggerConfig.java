@@ -42,8 +42,8 @@ public class SwaggerConfig {
      return new Docket(DocumentationType.SWAGGER_2)
              .apiInfo(apiInfo())
              .securitySchemes(Arrays.asList(new ApiKey[]{new ApiKey("XAuth", "XAuth", "header")}))
-             .select().paths(PathSelectors.any()).apis(RequestHandlerSelectors.basePackage("com.jwt.jwtsecurity.controller")).build()
-            .pathMapping("/");
+             .select().paths(PathSelectors.any()).apis(RequestHandlerSelectors.basePackage("com.jwt.jwtsecurity.controller")).build();
+           // .enable(false);  //disable in production mode
  }
 
 }
