@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.jwt.jwtsecurity.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +24,10 @@ public class Users {
     
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Id is required only updated time")
     private long id;
+    @ApiModelProperty(notes = "userName is mandatory", required = true)
     private String userName;
+     @ApiModelProperty(notes = "password is mandatory", required = true)
     private String password;
 }

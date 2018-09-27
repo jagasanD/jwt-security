@@ -5,6 +5,7 @@
  */
 package com.jwt.jwtsecurity.swagger;
 
+import springfox.documentation.service.Contact;
 import java.util.Arrays;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,9 +29,10 @@ public class SwaggerConfig {
     
    ApiInfo apiInfo() {
    return new ApiInfoBuilder()
-       .title("Bridge Pay API")
+       .title("Test  API")
        .description("API Reference")
        .version("1.0.0")
+       .contact(new Contact("Techo2","","jagasan.dansena@techo2.com"))
        .build();
  }
 
@@ -39,7 +41,7 @@ public class SwaggerConfig {
  public Docket productApi() {
      return new Docket(DocumentationType.SWAGGER_2)
              .apiInfo(apiInfo())
-             .securitySchemes(Arrays.asList(new ApiKey[]{new ApiKey("Authorization", "XAuth", "header")}))
+             .securitySchemes(Arrays.asList(new ApiKey[]{new ApiKey("XAuth", "XAuth", "header")}))
              .select().paths(PathSelectors.any()).apis(RequestHandlerSelectors.basePackage("com.jwt.jwtsecurity.controller")).build()
             .pathMapping("/");
  }

@@ -15,7 +15,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @Controller
 @ApiIgnore
-public class RedirectController {
+public class SwaggerController {
 
     @GetMapping("/")
     public String getSwaggerApi() {
