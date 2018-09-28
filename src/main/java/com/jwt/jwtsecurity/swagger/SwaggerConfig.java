@@ -32,7 +32,7 @@ public class SwaggerConfig {
        .title("Test  API")
        .description("API Reference")
        .version("1.0.0")
-       .contact(new Contact("Techo2","","jagasan.dansena@techo2.com"))
+       .contact(new Contact("Techo2","www.mytest.com","jagasan.dansena@techo2.com"))
        .build();
  }
 

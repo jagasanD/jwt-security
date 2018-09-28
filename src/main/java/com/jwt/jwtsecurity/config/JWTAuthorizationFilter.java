@@ -1,4 +1,3 @@
-
 package com.jwt.jwtsecurity.config;
 
 import static com.jwt.jwtsecurity.config.SecurityConstants.HEADER_STRING;
@@ -40,9 +39,12 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             HttpServletResponse res,
             FilterChain chain) throws IOException, ServletException {
         String header = req.getHeader(HEADER_STRING);
+        // we can allow to access with secretkey not required token 
+
         if (header == null) {
             throw new RuntimeException("----XAuth Required-------");
         }
+
         UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(req, res);
@@ -55,7 +57,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             Claims claim = Jwts.parser()
                     .setSigningKey(SecurityConstants.SECRET)
                     .parseClaimsJws(token).getBody();
-          /*  String authId = claim.get("authId").toString();
+            /*  String authId = claim.get("authId").toString();
             String randomString = claim.get("randomString").toString();
             String id = claim.get("id").toString();
             String role = claim.get("role").toString();
@@ -63,6 +65,14 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             List<GrantedAuthority> roles = new ArrayList<>();
             roles.add(new SimpleGrantedAuthority("USER"));
 
+            /*  *************************Access the API based on seckretKey ****************** */
+ /* 
+        String clientIdOrSecretkey = req.getHeader("secretKey");
+        find in the database secretKey is avlilable or not if not throws exception else
+        set the role and seckret key in UsernamePasswordAuthenticationToken() 
+        like role is ACCESSAPI 
+        **************************************************************************************
+             */
             if (claim != null) {
                 return new UsernamePasswordAuthenticationToken(token, null, roles);
             } else {
