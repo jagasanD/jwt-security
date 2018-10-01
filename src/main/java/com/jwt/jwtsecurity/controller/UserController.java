@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class UserController {
         ,
         @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
-    public Boolean save(@RequestBody UserBean bean) {
+    public Boolean save(@Valid @RequestBody UserBean bean)throws Exception {
         return uSerService.save(bean);
     }
 
@@ -58,7 +59,7 @@ public class UserController {
         ,
         @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
-    public GenericResponse fetchUsers() {
+    public GenericResponse fetchUsers()throws Exception {
         return uSerService.fetchUsers();
     }
 

@@ -6,12 +6,13 @@
 package com.jwt.jwtsecurity.controller;
 
 import com.jwt.jwtsecurity.bean.GenericResponse;
-import com.jwt.jwtsecurity.bean.UserBean;
+import com.jwt.jwtsecurity.bean.LoginBean;
 import com.jwt.jwtsecurity.service.USerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +44,7 @@ public class PublicController {
         ,
         @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
-    public GenericResponse login(@RequestBody UserBean bean) {
+    public GenericResponse login( @Valid @RequestBody LoginBean bean) throws Exception {
         return uSerService.loadUserByUsername(bean);
     }
 }

@@ -2,6 +2,7 @@
 package com.jwt.jwtsecurity.service;
 
 import com.jwt.jwtsecurity.bean.GenericResponse;
+import com.jwt.jwtsecurity.bean.LoginBean;
 import com.jwt.jwtsecurity.bean.UserBean;
 
 /**
@@ -11,8 +12,8 @@ import com.jwt.jwtsecurity.bean.UserBean;
 
 public interface USerService {
 
-    public Boolean save(UserBean bean);
-    public GenericResponse loadUserByUsername(UserBean bean);
-    public GenericResponse fetchUsers();
+    public Boolean save(UserBean bean)throws Exception;
+    public GenericResponse loadUserByUsername(LoginBean bean)throws Exception;
+    public GenericResponse fetchUsers()throws Exception;
     
 }

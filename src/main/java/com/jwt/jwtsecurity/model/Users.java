@@ -1,7 +1,6 @@
 
 package com.jwt.jwtsecurity.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +23,9 @@ public class Users {
     
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty(notes = "Id is required only updated time")
     private long id;
-    @ApiModelProperty(notes = "userName is mandatory", required = true)
     private String userName;
-     @ApiModelProperty(notes = "password is mandatory", required = true)
     private String password;
+    private Integer age;
+    private String email;
 }

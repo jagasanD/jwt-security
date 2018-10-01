@@ -43,7 +43,7 @@ import org.springframework.util.Assert;
         return new User(applicationUser.getUserName(), applicationUser.getPassword(), emptyList());
     }*/
     
-     public GenericResponse loadUserByUsername(UserBean bean) {
+     public GenericResponse loadUserByUsername(UserBean bean)throws Exception {
         Users user = userRepository.findByUserName(bean.getUserName());
         GenericResponse response =null;
         if (user == null) {

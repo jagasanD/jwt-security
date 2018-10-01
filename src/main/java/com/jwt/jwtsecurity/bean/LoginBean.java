@@ -14,11 +14,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class UserBean {
-    
-    @ApiModelProperty(notes = "Id is required only updated time")
-    private long id;
-    
+public class LoginBean {
+   
     @ApiModelProperty(notes = "userName is mandatory", required = true)
     @NotEmpty(message="UserName can not be Empty")
     private String userName;
@@ -27,11 +24,6 @@ public class UserBean {
     @NotEmpty(message="UserName can not be Empty")
     private String password;
     
-    @Min(value=15,message="Age must be greater then 15")
-    private Integer age;
-    
-    @Email(message="Invalide Email ")
-     @ApiModelProperty(notes = "Email is mandatory", required = true)
-    private String email;
+  
     
 }
